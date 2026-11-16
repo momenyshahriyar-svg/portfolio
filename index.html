@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHAHRIYAR MOMENY — Portfolio & Dossier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;600;700&family=Silkscreen:wght@400;700&family=Vazirmatn:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #09090b;
+      --bg-secondary: #121215;
+      --bg-card: #16161a;
+      --bg-hover: #1f1f24;
+      --text-primary: #fafafa;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --border-color: #27272a;
+      --border-strong: #52525b;
+      --accent-white: #ffffff;
+      --font-pixel: 'Silkscreen', monospace;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-fa: 'Vazirmatn', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background-color: var(--bg-primary); color: var(--text-primary); font-family: var(--font-sans); scroll-behavior: smooth; line-height: 1.65; }
+    html[lang="fa"] { font-family: var(--font-fa); }
+    body { background-color: var(--bg-primary); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+    .dither-bg { background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 0); background-size: 8px 8px; }
+    .font-pixel { font-family: var(--font-pixel); text-transform: uppercase; }
+    html[lang="fa"] .font-pixel { font-family: var(--font-fa); font-weight: 900; }
+    .font-mono-tech { font-family: var(--font-mono); }
+    .site-wrapper { max-width: 1180px; width: 100%; margin: 0 auto; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); min-height: 100vh; display: flex; flex-direction: column; background: rgba(9, 9, 11, 0.92); }
+    .status-bar { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1.5rem; border-bottom: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); background: #050507; }
+    .pixel-dot { width: 8px; height: 8px; background-color: var(--accent-white); display: inline-block; animation: blink 1.4s steps(2, start) infinite; }
+    @keyframes blink { to { visibility: hidden; } }
+    .site-header { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-color); flex-wrap: wrap; gap: 1rem; }
+    .brand-identity { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; color: var(--text-primary); }
+    .pixel-avatar-badge { width: 38px; height: 38px; border: 2px solid var(--accent-white); background: var(--bg-card); display: grid; place-items: center; font-family: var(--font-pixel); font-size: 0.9rem; color: var(--accent-white); box-shadow: 3px 3px 0px var(--border-strong); }
+    .nav-controls { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .nav-tab { padding: 0.45rem 0.9rem; font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-secondary); background: transparent; border: 1px solid transparent; cursor: pointer; text-decoration: none; text-transform: uppercase; transition: 0.15s; }
+    .nav-tab:hover, .nav-tab.active { color: var(--bg-primary); background: var(--accent-white); border-color: var(--accent-white); font-weight: 700; }
+    .lang-btn { padding: 0.45rem 0.85rem; font-family: var(--font-pixel); font-size: 0.72rem; background: var(--bg-card); color: var(--accent-white); border: 1px solid var(--border-strong); cursor: pointer; }
+    .lang-btn:hover { background: var(--accent-white); color: var(--bg-primary); }
+    .walsh-grid { display: grid; grid-template-columns: repeat(12, 1fr); border-bottom: 1px solid var(--border-color); }
+    .grid-cell { padding: 2rem; border-bottom: 1px solid var(--border-color); border-right: 1px solid var(--border-color); }
+    html[dir="rtl"] .grid-cell { border-right: none; border-left: 1px solid var(--border-color); }
+    .col-8 { grid-column: span 8; } .col-4 { grid-column: span 4; }
+    .cell-label { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; border: 1px solid var(--border-color); padding: 0.15rem 0.55rem; background: #0d0d10; }
+    .hero-banner { width: 100%; max-height: 380px; object-fit: contain; border: 1px solid var(--border-strong); background: #0c0c0e; margin-bottom: 1.5rem; filter: grayscale(100%) contrast(1.2); }
+    .empty-notice { padding: 4rem 2rem; text-align: center; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.85rem; border: 1px dashed var(--border-color); margin: 2rem; background: var(--bg-secondary); }
+    .site-footer { margin-top: auto; padding: 1.5rem; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); flex-wrap: wrap; gap: 1rem; }
+    @media (max-width: 900px) { .col-8, .col-4 { grid-column: span 12; } }
+  </style>
+</head>
+<body>
+  <div class="site-wrapper">
+    <div class="status-bar">
+      <div class="status-indicator"><span class="pixel-dot"></span><span data-i18n="statusText">SYS.2026 // PIXEL-NOIR DOSSIER // ONLINE</span></div>
+      <div>ISFAHAN, IR — VISUAL COMM. & GAME DEV</div>
+    </div>
+
+    <header class="site-header">
+      <a href="#home" class="brand-identity" onclick="switchSection('home'); return false;">
+        <div class="pixel-avatar-badge">SM</div>
+        <div>
+          <div class="font-pixel" style="font-size: 1rem;" data-i18n="brandName">SHAHRIYAR MOMENY</div>
+          <div class="font-mono-tech" style="font-size: 0.72rem; color: var(--text-muted);" data-i18n="brandRole">Graphic Designer • Illustrator • Concept Artist • Animation & Game Dev</div>
+        </div>
+      </a>
+      <nav class="nav-controls">
+        <button class="nav-tab active" data-target="home" onclick="switchSection('home')" data-i18n="navHome">00. Info</button>
+        <button class="nav-tab" data-target="blog" onclick="switchSection('blog')" data-i18n="navBlog">01. Blog</button>
+        <button class="nav-tab" data-target="animation" onclick="switchSection('animation')" data-i18n="navAnim">02. Animation</button>
+        <button class="nav-tab" data-target="graphic" onclick="switchSection('graphic')" data-i18n="navGraphic">03. Graphic</button>
+        <button class="nav-tab" data-target="illustration" onclick="switchSection('illustration')" data-i18n="navIllus">04. Illustration</button>
+        <button class="nav-tab" data-target="game" onclick="switchSection('game')" data-i18n="navGame">05. Game</button>
+        <button class="lang-btn" onclick="toggleLanguage()" data-i18n="langBtn">FA / فارسی</button>
+      </nav>
+    </header>
+
+    <main id="view-home" class="page-view">
+      <div class="walsh-grid">
+        <div class="grid-cell col-8">
+          <span class="cell-label" data-i18n="heroLabel">// 00. ARCHITECTURAL DOSSIER & BANNER</span>
+          <img src="Untitled-1.webp" alt="Banner" class="hero-banner" />
+          <h1 class="font-pixel" style="font-size: clamp(1.2rem, 2.5vw, 1.8rem); line-height: 1.4; margin-bottom: 1rem;" data-i18n="heroTitle">
+            GRAPHIC DESIGNER • ILLUSTRATOR • CONCEPT ARTIST • ANIMATION & GAME DEV
+          </h1>
+          <p style="color: var(--text-secondary); font-size: 0.98rem;" data-i18n="heroDesc">
+            سلام من شهریار هستم این هم دفترچه کارهای من در چندوقت گذشته سعی میکنم بیشتر کارهام رو به اشتراک بزارم
+          </p>
+        </div>
+        <div class="grid-cell col-4 dither-bg" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="font-mono-tech" style="font-size: 0.72rem; color: var(--text-secondary);">
+            <div>ID: SHAHRIYAR_MOMENY</div>
+            <div>STATUS: ACTIVE DOSSIER</div>
+          </div>
+          <div style="margin: 2rem 0; border: 2px solid var(--accent-white); padding: 1.25rem; background: var(--bg-primary); text-align: center;">
+            <div class="font-pixel" style="font-size: 0.85rem;">[ PORTFOLIO ARCHIVE ]</div>
+          </div>
+          <div class="font-mono-tech" style="font-size: 0.7rem; color: var(--text-muted);">GITHUB PAGES READY // 2026</div>
+        </div>
+      </div>
+    </main>
+
+    <section id="view-blog" class="page-view" style="display: none;"><div class="empty-notice" data-i18n="emptyNotice">[ بخش وبلاگ در حال آماده‌سازی است. ]</div></section>
+    <section id="view-animation" class="page-view" style="display: none;"><div class="empty-notice" data-i18n="emptyNotice">[ بخش انیمیشن در حال آماده‌سازی است. ]</div></section>
+    <section id="view-graphic" class="page-view" style="display: none;"><div class="empty-notice" data-i18n="emptyNotice">[ بخش گرافیک در حال آماده‌سازی است. ]</div></section>
+    <section id="view-illustration" class="page-view" style="display: none;"><div class="empty-notice" data-i18n="emptyNotice">[ بخش تصویرسازی در حال آماده‌سازی است. ]</div></section>
+    <section id="view-game" class="page-view" style="display: none;"><div class="empty-notice" data-i18n="emptyNotice">[ بخش بازی در حال آماده‌سازی است. ]</div></section>
+
+    <footer class="site-footer">
+      <div data-i18n="footerCopy">© 2026 SHAHRIYAR MOMENY — MONOCHROME PIXEL ARCHITECTURE</div>
+      <div><a href="https://github.com" target="_blank" style="color: var(--text-primary); text-decoration: none;">[GITHUB]</a></div>
+    </footer>
+  </div>
+
+  <script>
+    const i18nDict = {
+      en: {
+        statusText: "SYS.2026 // PIXEL-NOIR DOSSIER // ONLINE",
+        brandName: "SHAHRIYAR MOMENY",
+        brandRole: "Graphic Designer • Illustrator • Concept Artist • Animation & Game Dev",
+        navHome: "00. Info", navBlog: "01. Blog", navAnim: "02. Animation", navGraphic: "03. Graphic", navIllus: "04. Illustration", navGame: "05. Game",
+        langBtn: "FA / فارسی",
+        heroLabel: "// 00. ARCHITECTURAL DOSSIER & BANNER",
+        heroTitle: "GRAPHIC DESIGNER • ILLUSTRATOR • CONCEPT ARTIST • ANIMATION & GAME DEV",
+        heroDesc: "Hello, I am Shahriyar. This is my sketchbook & work log from recent times. I will be sharing more of my works here.",
+        emptyNotice: "[ This section is currently under construction. Content will be added soon. ]",
+        footerCopy: "© 2026 SHAHRIYAR MOMENY — MONOCHROME PIXEL ARCHITECTURE"
+      },
+      fa: {
+        statusText: "سیستم ۲۰۲۶ // پرونده پیکسل‌آرت // فعال",
+        brandName: "شهریار مومنی",
+        brandRole: "گرافیک دیزاینر • تصویرساز • کانسپت آرتیست • توسعه‌دهنده انیمیشن و بازی",
+        navHome: "۰۰. اطلاعات", navBlog: "۰۱. وبلاگ", navAnim: "۰۲. انیمیشن", navGraphic: "۰۳. گرافیک", navIllus: "۰۴. تصویرسازی", navGame: "۰۵. بازی",
+        langBtn: "EN / ENGLISH",
+        heroLabel: "// پرونده معماری و بنر معرفی",
+        heroTitle: "گرافیک دیزاینر، تصویرساز، کانسپت آرتیست و توسعه‌دهنده انیمیشن و ویدیو گیم",
+        heroDesc: "سلام من شهریار هستم این هم دفترچه کارهای من در چندوقت گذشته سعی میکنم بیشتر کارهام رو به اشتراک بزارم",
+        emptyNotice: "[ این بخش در حال آماده‌سازی است. به‌زودی مطالب اضافه خواهند شد. ]",
+        footerCopy: "© ۲۰۲۶ شهریار مومنی — معماری مونوکروم پیکسلی"
+      }
+    };
+    let currentLang = 'en';
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18nDict[lang][key]) el.textContent = i18nDict[lang][key];
+      });
+    }
+    function toggleLanguage() { setLanguage(currentLang === 'en' ? 'fa' : 'en'); }
+    function switchSection(sectionId) {
+      document.querySelectorAll('.page-view').forEach(v => v.style.display = 'none');
+      document.getElementById('view-' + sectionId).style.display = 'block';
+      document.querySelectorAll('.nav-tab').forEach(t => {
+        t.classList.remove('active');
+        if (t.getAttribute('data-target') === sectionId) t.classList.add('active');
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.addEventListener('DOMContentLoaded', () => setLanguage('en'));
+  </script>
+</body>
+</html>
